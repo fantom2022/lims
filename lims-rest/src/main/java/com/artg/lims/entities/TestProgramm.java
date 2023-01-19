@@ -3,7 +3,7 @@ package com.artg.lims.entities;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,9 +15,6 @@ public class TestProgramm {
     @SequenceGenerator(name = "sq_test_programm", sequenceName = "sq_test_programm_id", allocationSize = 0)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sq_test_programm")
     private Long id;
-
-    @Column(name = "test_programm_type_id")
-    private Long testProgrammTypeId;
 
     @Column(name = "registration_number", nullable = false)
     private String registrationNumber;
@@ -40,9 +37,11 @@ public class TestProgramm {
     @Column(name = "end_date")
     private Date endDate;
 
-    @Column(name = "accompaying_passport")
-    private AccompayingPassport accompayingPassport;
+//    @Column(name = "test_programm_type_id")
+//    private Long testProgrammTypeId;
 
-    @Column
+    @ManyToOne
+    @JoinColumn (name="test_programm_type_id")
+    private TestProgrammType testProgrammType;
 
 }

@@ -3,7 +3,9 @@ package com.artg.lims.entities;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "test_programm_type")
@@ -21,4 +23,7 @@ public class TestProgrammType {
 
     @Column(name="designation")
     private String designation;
+
+    @OneToMany(mappedBy = "testProgrammType")
+    List<TestProgramm> testProgrammList;
 }
