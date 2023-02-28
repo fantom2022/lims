@@ -1,5 +1,6 @@
 package com.artg.lims.entities;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 

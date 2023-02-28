@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Test List</h2>
+  </div>
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    style="width: 100%; height: 100%"
+    (gridReady)="onGridReady($event)"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="tests"></ag-grid-angular>
+</div>
+
+
