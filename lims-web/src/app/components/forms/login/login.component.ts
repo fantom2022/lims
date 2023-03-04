@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from "../../../dto/User";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
+  user= new User("Artem", "Gorlov");
+  loading = false;
+
+  ngOnInit(): void {
+
+  }
+
+  constructor() {
+  }
+
+  onInput(event: any) {
+    console.log(event);
+  }
 }

@@ -1,0 +1,15 @@
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
+}
+
+.btnGroup{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}

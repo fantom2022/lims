@@ -1,29 +1,38 @@
-<div class="container py-5 h-100">
-  <div class="row d-flex justify-content-center align-items-center h-100">
-    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-      <div class="card bg-dark text-white" style="border-radius: 1rem;">
-        <div class="card-body p-5 text-center">
-          <div class="mb-md-5 mt-md-4 pb-5">
-
-            <h2 class="fw-bold mb-2 text-uppercase">Авторизация</h2>
-            <p class="text-white-50 mb-5">Введите логин и пароль!</p>
-            <form>
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="username">Логин</label>
-                <input type="text" id="username" required="true" class="form-control form-control-lg"/>
-              </div>
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="password">Пароль</label>
-                <input type="password" id="password" required="true" class="form-control form-control-lg"/>
-              </div>
-              <div class="display-1">
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Регистрация</button>
-                <button class="btn btn-success btn-lg px-5" type="submit">Войти</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+<div class="loginForm">
+  <form #form="ngForm" [class.content-disabled]="loading">
+    <h3 class="p-panel-header" style="text-align: center;">Авторизация</h3>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+      <input pInputText
+             type="text"
+             [(ngModel)]="user.userName"
+             placeholder="Введите логин">
     </div>
-  </div>
+
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+      <input pInputText
+             (ngModelChange)="user.password = $event"
+             [ngModel]="user.password"
+             type="password"
+             placeholder="Введите пароль"
+             aria-describedby="password-help">
+    </div>
+
+    <div class="btnGroup">
+      <button pButton class="p-button registerButton"
+              type="button"
+              label="Регистрация">Регистрация
+      </button>
+
+      <button pButton
+              class="p-button loginButton"
+              type="button"
+              label="Войти">Войти
+      </button>
+    </div>
+  </form>
 </div>
+
+
+

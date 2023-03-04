@@ -4,9 +4,11 @@ import {TestProgrammComponent} from "./components/tabledata/test-programm/test-p
 import {LoginComponent} from "./components/forms/login/login.component";
 import {NotFoundComponent} from "./components/forms/not-found/not-found.component";
 import {AppComponent} from "./app.component";
+import {UserListComponent} from "./components/tabledata/user-list/user-list.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'users', component: UserListComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}, //not-found это **
   {path: 'test-programms', component: TestProgrammComponent}
