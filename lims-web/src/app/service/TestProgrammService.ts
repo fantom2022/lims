@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {TestProgramm} from "../dto/TestProgramm";
+import {TestProgrammDto} from "../dto/TestProgrammDto";
 
 @Injectable()
 export class TestProgrammService {
@@ -10,8 +10,8 @@ export class TestProgrammService {
 
   private baseUrl = 'http://localhost:8080/tests';
 
-  getTests(): Observable<Array<TestProgramm>> {
-    const res = this.http.get<Array<TestProgramm>>(`${this.baseUrl}/all`);
+  getTests(): Observable<Array<TestProgrammDto>> {
+    const res = this.http.get<Array<TestProgrammDto>>(`${this.baseUrl}/all`);
     return res;
   }
 }

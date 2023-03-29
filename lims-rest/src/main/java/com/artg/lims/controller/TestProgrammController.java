@@ -1,17 +1,12 @@
 package com.artg.lims.controller;
 
-import com.artg.lims.entities.TestProgramm;
-import com.artg.lims.repository.TestProgrammRepository;
+import com.artg.lims.entities.TestProgram;
+import com.artg.lims.repository.TestProgramRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.data.util.Streamable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("tests")
@@ -19,22 +14,22 @@ import java.util.stream.Collectors;
 public class TestProgrammController {
 
     @Autowired
-    private TestProgrammRepository testProgrammRepository;
+    private TestProgramRepository testProgramRepository;
 
-    @GetMapping("test")
+    @GetMapping("/")
     public String test() {
         return "Hello,World!";
     }
 
     @GetMapping("all")
     @ResponseBody
-    public List<TestProgramm> getAllTests() {
-        return testProgrammRepository.findAll();
+    public List<TestProgram> getAllTests() {
+        return testProgramRepository.findAll();
     }
 
     @PostMapping("add")
-    public void addNewTest(@RequestBody TestProgramm programm) throws Exception {
-        this.testProgrammRepository.save(programm);
+    public void addNewTest(@RequestBody TestProgram program) throws Exception {
+        this.testProgramRepository.save(program);
     }
 
 

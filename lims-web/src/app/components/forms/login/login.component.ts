@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../../dto/User";
+import {UserDto} from "../../../dto/UserDto";
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import {User} from "../../../dto/User";
 })
 export class LoginComponent implements OnInit {
 
-  user= new User("Artem", "Gorlov");
+  user= new UserDto("Artem", "Gorlov");
   loading = false;
 
   ngOnInit(): void {

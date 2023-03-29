@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {TestProgrammComponent} from "./components/tabledata/test-programm/test-programm.component";
+import {TestProgramComponent} from "./components/tabledata/test-programm/test-program.component";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from '@angular/common/http';
 import {AgGridModule} from "ag-grid-angular";
@@ -16,7 +16,7 @@ import {ButtonModule} from "primeng/button";
 @NgModule({
   declarations: [
     AppComponent,
-    TestProgrammComponent,
+    TestProgramComponent,
     LoginComponent,
     NotFoundComponent,
     UserListComponent

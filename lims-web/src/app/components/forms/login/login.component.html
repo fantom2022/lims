@@ -1,9 +1,10 @@
 <div class="loginForm">
-  <form #form="ngForm" [class.content-disabled]="loading">
+  <form #form="ngForm">
     <h3 class="p-panel-header" style="text-align: center;">Авторизация</h3>
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
       <input pInputText
+             name="userName"
              type="text"
              [(ngModel)]="user.userName"
              placeholder="Введите логин">
@@ -12,6 +13,7 @@
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
       <input pInputText
+             name="password"
              (ngModelChange)="user.password = $event"
              [ngModel]="user.password"
              type="password"
@@ -20,16 +22,14 @@
     </div>
 
     <div class="btnGroup">
-      <button pButton class="p-button registerButton"
+      <button pButton pRipple [style]="{ 'font-size': '10px', 'height':'50px', 'width':'100%'}"
               type="button"
-              label="Регистрация">Регистрация
-      </button>
-
-      <button pButton
-              class="p-button loginButton"
+              label="Зарегистрироваться"
+              class="p-button-raised p-button-success"></button>
+      <button pButton pRipple [style]="{'height':'50px', 'width':'100%'}"
               type="button"
-              label="Войти">Войти
-      </button>
+              label="Войти"
+              class="p-button-raised p-button-success"></button>
     </div>
   </form>
 </div>

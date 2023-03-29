@@ -1,4 +1,4 @@
-export class TestProgramm {
+export class TestProgrammDto {
   id: number;
   testProgrammTypeId: number;
   registrationNumber: string;
@@ -9,7 +9,15 @@ export class TestProgramm {
   beginDate: Date;
   endDate: Date;
 
-  constructor(id: number, testProgrammTypeId: number, registrationNumber: string, productId: number, productMaxAmount: number, performerDepartmentId: number, documentUnderlyingId: number, beginDate: Date, endDate: Date) {
+  public mapper(id: number,
+       testProgrammTypeId: number,
+       registrationNumber: string,
+       productId: number,
+       productMaxAmount: number,
+       performerDepartmentId: number,
+       documentUnderlyingId: number,
+       beginDate: Date,
+       endDate: Date) {
     this.id = id;
     this.testProgrammTypeId = testProgrammTypeId;
     this.registrationNumber = registrationNumber;
@@ -19,5 +27,8 @@ export class TestProgramm {
     this.documentUnderlyingId = documentUnderlyingId;
     this.beginDate = beginDate;
     this.endDate = endDate;
+
+
   }
 }
+

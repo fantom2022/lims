@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {TestProgramm} from "../../../dto/TestProgramm";
+import {TestProgrammDto} from "../../../dto/TestProgrammDto";
 import {TestProgrammService} from "../../../service/TestProgrammService";
 import {ColDef, GridReadyEvent} from "ag-grid-community";
 import {AgGridAngular} from "ag-grid-angular";
@@ -7,13 +7,13 @@ import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-test-programm',
-  templateUrl: './test-programm.component.html',
-  styleUrls: ['./test-programm.component.scss'],
+  templateUrl: './test-program.component.html',
+  styleUrls: ['./test-program.component.scss'],
   providers: [TestProgrammService]
 })
-export class TestProgrammComponent implements OnInit {
+export class TestProgramComponent implements OnInit {
 
-  public tests: TestProgramm[];
+  public tests: TestProgrammDto[];
 
   constructor(private testProgrammService: TestProgrammService,
               private http: HttpClient) {
