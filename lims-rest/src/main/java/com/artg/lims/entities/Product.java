@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "dict_product")
@@ -19,6 +21,13 @@ public class Product {
     private String name;
     private String designation;
     private Boolean archiveFlag;
+
     @OneToMany(mappedBy = "testingProduct")
-    private List<TestProgram> testPrograms;
+    private Set<TestProgram> testPrograms = new HashSet<>();
+
+    @OneToMany(mappedBy = "product")
+    private Set<Plantask> plantasks = new HashSet<>();
+
+    @OneToMany(mappedBy = "product")
+    private Set<AccompanyingPassport> passports = new HashSet<>();
 }

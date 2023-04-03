@@ -5,19 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Plantask {
+public class AccompanyingPassport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String positionNumber;
+    private String accompanyingPassportNumber;
     private Long productAmount;
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)

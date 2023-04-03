@@ -1,14 +1,13 @@
 package com.artg.lims.entities;
 
+import com.artg.lims.entities.extension.ProductExtension;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,10 +25,13 @@ public class TestProgram {
     private Date endDate;
     private Long testingProductMaxAmount;
     private Long testingProductAmount;
-    private Long documentReasonId;
 
     @OneToMany(mappedBy = "testProgram")
-    private List<DocumentReason> documentReasons;
+    private Set<DocumentReason> documentReasons = new HashSet<>();
+    @OneToMany(mappedBy = "testProgram")
+    private Set<TestProgramCommissioner> commissioners = new HashSet<>();
+    @OneToMany(mappedBy = "testProgram")
+    private Set<TestProgramPerformer> performers = new HashSet<>();
 
     //TODO: каскад
     @ManyToMany
@@ -40,18 +42,55 @@ public class TestProgram {
     )
     private Set<Plantask> plantasks = new HashSet<Plantask>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "test_program_worknumbers",
+            joinColumns = @JoinColumn(name = "test_program_id"),
+            inverseJoinColumns = @JoinColumn(name = "worknumber_id")
+    )
+    private Set<Worknumber> worknumbers = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "test_program_accompanying_passports",
+            joinColumns = @JoinColumn(name = "test_program_id"),
+            inverseJoinColumns = @JoinColumn(name = "passport_id")
+    )
+    private Set<AccompanyingPassport> passports = new HashSet<>();
+
     @ManyToOne
-    @JoinColumn(name = "test_program_type_id")
+    @JoinColumn(name = "test_program_type_id", nullable = false)
     private TestProgramType testProgramType;
+
     @ManyToOne
     @JoinColumn(name = "testing_product_id")
     private Product testingProduct;
 
-    public void addPlantask(Plantask plantask){
+    @ManyToOne
+    @JoinColumn(name = "testing_product_ext_id")
+    private ProductExtension testingProductExt;
+
+    public void addPlantask(Plantask plantask) {
         this.plantasks.add(plantask);
     }
 
-    public void removePlantask(Plantask plantask){
+    public void removePlantask(Plantask plantask) {
         this.plantasks.remove(plantask);
+    }
+
+    public void addAccompanyingPassport(AccompanyingPassport accompanyingPassport) {
+        this.passports.add(accompanyingPassport);
+    }
+
+    public void removeAccompanyingPassport(AccompanyingPassport accompanyingPassport) {
+        this.passports.remove(accompanyingPassport);
+    }
+
+    public void addWorknumber(Worknumber worknumber) {
+        this.worknumbers.add(worknumber);
+    }
+
+    public void removeWorknumber(Worknumber worknumber) {
+        this.worknumbers.remove(worknumber);
     }
 }
